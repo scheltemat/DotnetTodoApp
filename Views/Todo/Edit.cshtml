@@ -1,0 +1,25 @@
+@model TodoApp.Models.Todo
+
+@{
+    ViewData["Title"] = "Edit Todo";
+}
+
+<h1>Edit Todo</h1>
+
+<h4>Todo</h4>
+<hr />
+
+<form asp-action="Edit" method="post">
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="IsComplete">Completed?</label>
+        <input asp-for="IsComplete" type="checkbox" /> <!-- Remove form-control class -->
+        <span asp-validation-for="IsComplete" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+</form>

@@ -1,0 +1,17 @@
+@model TodoApp.Models.Todo
+
+@{
+    ViewData["Title"] = "Delete Todo";
+}
+
+<h1>Delete Todo</h1>
+
+<h3>Are you sure you want to delete the todo "<strong>@Model.Title</strong>"?</h3>
+<hr />
+
+<!-- Change the asp-action to 'Delete' so that it targets the correct POST method -->
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="@Url.Action("Index", "Todo")" class="btn btn-secondary">Cancel</a>
+</form>
